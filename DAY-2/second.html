@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Highest Marks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📘 Find Highest Marks</h2>
+  
+  <form id="marksForm">
+    <label for="marks">Enter marks (comma separated):</label>
+    <input type="text" id="marks" placeholder="e.g. 45, 89, 67, 92, 38">
+    
+    <button type="submit">Find Highest</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    // Function to find highest marks
+    function findHighestMarks(marksArray) {
+      if (marksArray.length === 0) {
+        return "Please enter some marks.";
+      }
+
+      let highest = marksArray[0];
+
+      for (let i = 1; i < marksArray.length; i++) {
+        if (marksArray[i] > highest) {
+          highest = marksArray[i];
+        }
+      }
+
+      return highest;
+    }
+
+    // Event listener for form submission
+    document.getElementById("marksForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Get input value
+      const input = document.getElementById("marks").value;
+
+      // Convert string to number array
+      const marksArray = input.split(',').map(mark => Number(mark.trim()));
+
+      // Get result
+      const highest = findHighestMarks(marksArray);
+
+      // Display result
+      document.getElementById("result").textContent = "Highest Marks: " + highest;
+    });
+  </script>
+
+</body>
+</html>
