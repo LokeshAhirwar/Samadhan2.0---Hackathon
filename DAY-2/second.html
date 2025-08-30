@@ -36,7 +36,7 @@
   <div id="result"></div>
 
   <script>
-    // Function to find highest marks
+    
     function findHighestMarks(marksArray) {
       if (marksArray.length === 0) {
         return "Please enter some marks.";
@@ -53,20 +53,20 @@
       return highest;
     }
 
-    // Event listener for form submission
+    
     document.getElementById("marksForm").addEventListener("submit", function(event) {
       event.preventDefault();
 
-      // Get input value
+      
       const input = document.getElementById("marks").value;
 
-      // Convert string to number array
+      
       const marksArray = input.split(',').map(mark => Number(mark.trim()));
 
-      // Get result
+      
       const highest = findHighestMarks(marksArray);
 
-      // Display result
+    
       document.getElementById("result").textContent = "Highest Marks: " + highest;
     });
   </script>
